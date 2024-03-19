@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [Header("Jumping")]
     public float jumpHeight = 1f;
     public float detectionLength = 1f;
+    public float gravity = -5f;
 
     [Header("Falling")]
     private float fallingHorizontalVelocityBoost = 0;
