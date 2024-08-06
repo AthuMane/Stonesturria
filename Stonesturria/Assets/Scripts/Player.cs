@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public Transform magicWand;
 
     [Header("Current Checks")]
+    public bool canMove = true;
     private bool isAlive = true;
     private bool isRunning = false;
     private bool isJumping = false;
@@ -157,7 +158,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        if (isAlive && !isAttacking)
+        if (isAlive && !isAttacking && canMove)
         {
             moveSpeed = moveInput.x * (runSpeed + fallingHorizontalVelocityBoost);
             playerRigidBody.velocity = new Vector2(moveSpeed, playerRigidBody.velocity.y); ;
@@ -177,7 +178,7 @@ public class Player : MonoBehaviour
     }
     void OnJump()
     {
-        if (onGround && !isAttacking && !isFalling && isAlive)
+        if (onGround && !isAttacking && !isFalling && isAlive && canMove)
         {
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpHeight);
         }
